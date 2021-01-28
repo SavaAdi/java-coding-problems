@@ -1,4 +1,4 @@
-package com.adisava.basic_problems.hanoi;
+package com.adisava.basicproblems.hanoi;
 
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package com.adisava.basic_problems.fib;
+package com.adisava.basicproblems.fib;
 
 import java.util.stream.IntStream;
 

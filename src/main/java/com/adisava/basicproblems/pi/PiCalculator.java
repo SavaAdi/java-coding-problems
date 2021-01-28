@@ -1,4 +1,4 @@
-package com.adisava.basic_problems.pi;
+package com.adisava.basicproblems.pi;
 
 public class PiCalculator {
 

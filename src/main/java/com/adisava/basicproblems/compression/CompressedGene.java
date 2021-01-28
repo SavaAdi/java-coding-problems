@@ -1,4 +1,4 @@
-package com.adisava.basic_problems.compression;
+package com.adisava.basicproblems.compression;
 
 import java.util.BitSet;
 

@@ -1,4 +1,4 @@
-package com.adisava.basic_problems.encryption;
+package com.adisava.basicproblems.encryption;
 
 public final class KeyPair {
 
