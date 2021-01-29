@@ -41,4 +41,23 @@ public class Gene {
             return comparator.compare(this, other);
         }
     }
+
+    public boolean linearContains(Codon key) {
+        for (Codon codon : codons) {
+            if (codon.compareTo(key) == 0) {
+                return true; // found a match
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        String geneStr =
+                "ACGTGGCTCTCTAACGTACGTACGTACGGGGTTTATATATACCCTAGGACTCCCTTT";
+        Gene myGene = new Gene(geneStr);
+        Codon acg = new Codon("ACG");
+        Codon gat = new Codon("GAT");
+        System.out.println(myGene.linearContains(acg)); // true
+        System.out.println(myGene.linearContains(gat)); // false
+    }
 }
