@@ -1,6 +1,7 @@
 package com.adisava.searchproblems;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Gene {
@@ -51,13 +52,47 @@ public class Gene {
         return false;
     }
 
+    public boolean binaryContains(Codon key) {
+
+        // binary search only works on sorted collections
+        ArrayList<Codon> sortedCodons = new ArrayList<>(codons);
+        Collections.sort(sortedCodons);
+
+        int low = 0;
+        int high = sortedCodons.size() - 1;
+
+        while (low <= high) { // while there is still a search space
+
+            int middle = (low + high) / 2;
+            int comparison = codons.get(middle).compareTo(key);
+
+            if (comparison < 0) { // middle codon is less than key
+                low = middle + 1;
+            } else if (comparison > 0) { // middle codon is > key
+                high = middle - 1;
+            } else { // middle codon is equal to key
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         String geneStr =
                 "ACGTGGCTCTCTAACGTACGTACGTACGGGGTTTATATATACCCTAGGACTCCCTTT";
         Gene myGene = new Gene(geneStr);
         Codon acg = new Codon("ACG");
         Codon gat = new Codon("GAT");
+
+        /*
+        This function is for illustrative purposes only. All of the classes in the Java
+        standard library that implement the Collection interface (like ArrayList and
+        LinkedList) have a contains() method that will likely be better optimized
+        than anything we write.
+         */
         System.out.println(myGene.linearContains(acg)); // true
         System.out.println(myGene.linearContains(gat)); // false
+        System.out.println(myGene.binaryContains(acg)); // true
+        System.out.println(myGene.binaryContains(gat)); // false
     }
 }
