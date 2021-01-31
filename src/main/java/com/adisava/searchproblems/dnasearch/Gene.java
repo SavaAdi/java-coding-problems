@@ -1,4 +1,4 @@
-package com.adisava.searchproblems;
+package com.adisava.searchproblems.dnasearch;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -92,6 +92,13 @@ public class Gene {
          */
         System.out.println(myGene.linearContains(acg)); // true
         System.out.println(myGene.linearContains(gat)); // false
+
+        /*
+        Once again, like with linear search, you would never need to implement
+        binary search yourself because there’s an implementation in the Java standard
+        library. Collections.binarySearch() can search any sorted Collection (like
+        a sorted ArrayList).
+         */
         System.out.println(myGene.binaryContains(acg)); // true
         System.out.println(myGene.binaryContains(gat)); // false
     }
